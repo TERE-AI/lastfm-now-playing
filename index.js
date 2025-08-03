@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import "./App.css";
 
@@ -10,7 +9,7 @@ function App() {
   const fetchTrack = async () => {
     try {
       const res = await fetch(
-        "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=ping_pingado&api_key=YOUR_API_KEY&format=json&limit=1"
+        "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=ping_pingado&api_key=3b623213c2ffd94b270a98d31d8de8a2&format=json&limit=1"
       );
       const data = await res.json();
       const recentTrack = data.recenttracks.track[0];
