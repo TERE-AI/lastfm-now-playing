@@ -79,6 +79,13 @@
         const data = await res.json();
         const track = data.recenttracks.track[0];
 
+        if (!track) {
+          title.textContent = "Nenhuma faixa encontrada";
+          artist.textContent = "";
+          status.textContent = "";
+          return;
+        }
+
         const isPlaying = track["@attr"] && track["@attr"].nowplaying;
         const artistName = track.artist["#text"];
         const trackName = track.name;
@@ -90,7 +97,6 @@
         cover.src = albumCover || "";
 
         if (albumCover) {
-          // Usar cor média da imagem para o fundo (via color-thief-like hack)
           const img = new Image();
           img.crossOrigin = "Anonymous";
           img.src = albumCover;
